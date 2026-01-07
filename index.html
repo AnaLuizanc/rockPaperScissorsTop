@@ -21,6 +21,14 @@
     document.getElementById("paper").onclick = () => handleHumanChoice("paper");
     document.getElementById("scissors").onclick = () => handleHumanChoice("scissors");
 
+    let humanScore, computerScore
+    humanScore = computerScore = 0;
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+
 </script>
 
 </html>
