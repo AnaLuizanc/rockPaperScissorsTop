@@ -1,26 +1,8 @@
 function getComputerChoice() {
-    let choices = ["rock", "paper", "scissors"]
-    let index = Math.floor(Math.random() * 3)
+    const choices = ["rock", "paper", "scissors"]
+    const index = Math.floor(Math.random() * 3)
 
     return choices[index]
-}
-
-function getHumanChoice() {
-    let userChoice = ""
-
-    document.getElementById("rock").onclick = function () {
-        userChoice = "rock"
-    }
-
-    document.getElementById("paper").onclick = function () {
-        userChoice = "paper"
-    }
-
-    document.getElementById("scissors").onclick = function () {
-        userChoice = "scissors"
-    }
-
-    return userChoice
 }
 
 function handleHumanChoice(choice) {
@@ -28,7 +10,18 @@ function handleHumanChoice(choice) {
     return choice
 }
 
-function playRound(humanChoice, computerChoice) {
+function getHumanChoice() {
+    return new Promise((resolve) => {
+        document.getElementById("rock").onclick = () => resolve("rock");
+        document.getElementById("paper").onclick = () => resolve("paper");
+        document.getElementById("scissors").onclick = () => resolve("scissors");
+    });
+}
+
+async function playRound() {
+
+    const humanChoice = await getHumanChoice();
+    const computerChoice = getComputerChoice();
 
     console.warn(humanChoice)
     console.warn(computerChoice)
