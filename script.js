@@ -18,25 +18,27 @@ function getHumanChoice() {
     });
 }
 
-async function playRound() {
+async function playRound(humanScore, computerScore) {
+    console.log("Human: " + humanScore + "\nComputer: " + computerScore);
 
     const humanChoice = await getHumanChoice();
     const computerChoice = getComputerChoice();
 
     console.warn(humanChoice)
-    console.warn(computerChoice)
+    console.warn("Computer's choice: " + computerChoice)
     if (humanChoice === computerChoice) {
         console.log("It's a tie!")
-        humanScore = humanScore + 1;
-        computerScore = computerScore + 1
+        playRound(humanScore, computerScore);
     } else if (humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
         console.log("You win!")
         humanScore = humanScore + 1;
+        playRound(humanScore, computerScore);
     } else {
         console.log("You lose! " + computerChoice + " beats " + humanChoice)
         computerScore = computerScore + 1
+        playRound(humanScore, computerScore);
     }
 }
 
