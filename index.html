@@ -4,22 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock, Paper and Scissors</title>
 </head>
 
-<body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+<body class="flex-container">
+    <div class="header">
+        Rock, Paper and Scissors Game
+    </div>
+    <div class="instructions">
+        <p>Here you will play with a bot. I hope you have fun!</p>
+    </div>
+    <div class="main-content">
+        <div class="container-score">
+            <h2>Score</h2>
+            <div id="swordsIcon"></div>
+        </div>
+        <div class="container-players">
+            <div class="left-player">
+                <div id="userIcon"></div>
+                <div class="buttons">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissors">Scissors</button>
+                </div>
+
+            </div>
+            <div id="versusIcon"></div>
+            <div class="right-player">
+                <div id="robotIcon"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>Made with hard work for The Odin Project 2026</h4>
+    </div>
 
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 <script>
     let humanScore = computerScore = 0
-    
-    playRound(humanScore, computerScore);
+
+    // playRound(humanScore, computerScore);
 
 </script>
 
