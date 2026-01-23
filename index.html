@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loader.css">
     <title>Rock, Paper and Scissors</title>
 </head>
 
@@ -22,17 +23,25 @@
         </div>
         <div class="container-players">
             <div class="left-player">
-                <div id="userIcon"></div>
+                <div>
+                    <div id="userIcon"></div>
+                    <div id="userChoicePlaceholder" class="usersPlaceholder"></div>
+                </div>
                 <div class="buttons">
                     <button id="rock">Rock</button>
                     <button id="paper">Paper</button>
                     <button id="scissors">Scissors</button>
                 </div>
-
             </div>
             <div id="versusIcon"></div>
             <div class="right-player">
-                <div id="robotIcon"></div>
+                <div>
+                    <div id="robotChoicePlaceholder" class="usersPlaceholder"></div>
+                    <div id="robotIcon"></div>
+                </div>
+                <div>
+                    <div class="loader"></div>
+                </div>
             </div>
         </div>
     </div>

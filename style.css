@@ -2,7 +2,6 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    border-color: 1px solid aqua;
 }
 
 body {
@@ -10,12 +9,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: #E0B1CB;
-    /* justify-content: space-between; */
 }
 
 svg {
     width: 20rem;
     height: auto;
+    margin: 1rem
 }
 
 .header, .footer {
@@ -26,10 +25,17 @@ svg {
 }
 
 .instructions {
-    padding: 1.5rem 1rem
+    padding: 1.5rem 1rem;
 }
 
-.main-content, .container-score {
+.container-score {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content{
     flex: 1;
     padding: 1rem;
     display: flex;
@@ -57,6 +63,20 @@ svg {
     gap: 1rem;
     justify-content: center;
     margin-top: 1rem;
+}
+
+.left-player div, .right-player div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.usersPlaceholder {
+    background-color: azure;
+    width: 8rem;
+    height: 8rem;
 }
 
 .buttons button {
