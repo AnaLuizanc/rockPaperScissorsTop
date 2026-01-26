@@ -75,7 +75,7 @@ svg {
 }
 
 .buttons {
-    display: flex;
+    /* display: flex; */
     gap: 1rem;
     justify-content: center;
     margin-top: 1rem;
@@ -125,7 +125,6 @@ svg {
 .alert-message {
     padding: 15px;
     background-color: #23194298;
-    /* Vermelho */
     color: white;
     position: fixed;
     top: 20px;
@@ -150,13 +149,23 @@ svg {
     }
 
     svg {
-        width: 15rem;
+        width: 10rem;
         margin: 0.4rem 1rem;
+    }
+
+    .usersPlaceholder {
+        width: 5rem;
+        height: 5rem;
     }
 
     .left-player div,
     .right-player div {
         flex-direction: column;
+    }
+    
+    div .buttons {
+        display: flex;
+        flex-direction: row;
     }
 
     .right-player {

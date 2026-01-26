@@ -28,6 +28,7 @@ document.querySelectorAll(".buttons button").forEach(button => {
 
         userPlaceholder.innerHTML = icons[humanChoice];
         robotPlaceholder.innerHTML = icons[computerChoice];
+        document.getElementById("loader").style.display = "none";
 
         const winner = getWinner(humanChoice, computerChoice);
         updateScores(winner);
@@ -41,6 +42,7 @@ function startNewRound() {
     userPlaceholder.innerHTML = "";
     robotPlaceholder.innerHTML = "";
     roundActive = true;
+    document.getElementById("loader").style.display = "block";
 }
 
 function updateScores(winner) {
