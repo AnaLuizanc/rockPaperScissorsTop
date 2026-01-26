@@ -53,16 +53,16 @@ function updateScores(winner) {
         humanScore += 1;
         document.getElementById("humanScore").innerHTML = humanScore;
         alert.style.backgroundColor = "#4bb543bf";
-        alert.textContent = "Você ganhou esta rodada!";
+        alert.textContent = "You win the round!";
     }
     else if (winner === "computer") {
         computerScore += 1;
         document.getElementById("computerScore").innerHTML = computerScore;
         alert.style.backgroundColor = "#ff0000bf";
-        alert.textContent = "Você perdeu esta rodada!";
+        alert.textContent = "You lose the round!";
     }
     else {
-        alert.textContent = "Empate!";
+        alert.textContent = "Draw!";
     }
 
     setTimeout(function () {
