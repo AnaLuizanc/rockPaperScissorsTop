@@ -17,14 +17,15 @@ svg {
     margin: 1rem
 }
 
-@font-face{
- font-family:'digital-clock-font';
- src: url('./digital-font/digital-7.ttf') format('truetype');
+@font-face {
+    font-family: 'digital-clock-font';
+    src: url('./digital-font/digital-7.ttf') format('truetype');
 }
 
 
-.header, .footer {
-    background-color:#231942;
+.header,
+.footer {
+    background-color: #231942;
     color: #BE95C4;
     padding: 1rem;
     text-transform: uppercase;
@@ -50,7 +51,7 @@ svg {
     border-radius: 0.5rem;
 }
 
-.main-content{
+.main-content {
     flex: 1;
     padding: 1rem;
     display: flex;
@@ -80,7 +81,9 @@ svg {
     margin-top: 1rem;
 }
 
-.left-player div, .right-player div, .scoreboard {
+.left-player div,
+.right-player div,
+.scoreboard {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,7 +108,12 @@ svg {
     text-transform: uppercase;
 }
 
-#swordsIcon svg, #versusIcon svg {
+.buttons button:hover {
+    background-color: #231942;
+}
+
+#swordsIcon svg,
+#versusIcon svg {
     width: 6rem;
 }
 
