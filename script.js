@@ -1,29 +1,21 @@
-import { userProfileIcon } from "./svgIcons.js";
-import { robotIcon } from "./svgIcons.js";
-import { versusIcon } from "./svgIcons.js";
-import { swordsIcon } from "./svgIcons.js";
-import { rockIcon } from "./svgIcons.js";
-import { paperIcon } from "./svgIcons.js";
-import { scissorsIcon } from "./svgIcons.js";
+import { icons } from "./svgIcons.js";
 
 const userPlaceholder = document.getElementById("userChoicePlaceholder");
+const robotPlaceholder = document.getElementById("robotChoicePlaceholder");
 
-document.getElementById("userIcon").innerHTML = userProfileIcon;
-document.getElementById("robotIcon").innerHTML = robotIcon;
-document.getElementById("versusIcon").innerHTML = versusIcon;
-document.getElementById("swordsIcon").innerHTML = swordsIcon;
+document.getElementById("userIcon").innerHTML = icons.userProfile;
+document.getElementById("robotIcon").innerHTML = icons.robot;
+document.getElementById("versusIcon").innerHTML = icons.versus;
+document.getElementById("swordsIcon").innerHTML = icons.swords;
 
 document.querySelectorAll(".buttons button").forEach(button => {
     button.addEventListener("mouseenter", () => {
         if (button.id === "rock") {
-            userPlaceholder.innerHTML = rockIcon;
+            userPlaceholder.innerHTML = icons.rock;
         } else if (button.id === "paper") {
-            userPlaceholder.innerHTML = paperIcon;
+            userPlaceholder.innerHTML = icons.paper;
         } else {
-            userPlaceholder.innerHTML = scissorsIcon;
+            userPlaceholder.innerHTML = icons.scissors;
         }
-    });
-    button.addEventListener("mouseleave", () => {
-        userPlaceholder.innerHTML = "";
     });
 });
