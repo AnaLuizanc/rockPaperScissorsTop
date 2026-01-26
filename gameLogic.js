@@ -6,11 +6,6 @@ function getComputerChoice() {
     return choices[index]
 }
 
-function handleHumanChoice(choice) {
-    console.log("Human chose:", choice);
-    return choice
-}
-
 function getHumanChoice() {
     return new Promise((resolve) => {
         document.getElementById("rock").onclick = () => resolve("rock");
@@ -19,26 +14,34 @@ function getHumanChoice() {
     });
 }
 
-async function playRound(humanScore, computerScore) {
-    console.log("Human: " + humanScore + "\nComputer: " + computerScore);
+function updateScores(plusHuman = false, plusComputer = false) {
+    if (plusHuman) {
+        humanScore += 1;
+        document.getElementById("humanScore").innerHTML = humanScore;
+    }
+    if (plusComputer) {
+        computerScore += 1;
+        document.getElementById("computerScore").innerHTML = computerScore;
+    }
+}
 
+async function playRound(humanScore, computerScore) {
     const humanChoice = await getHumanChoice();
     const computerChoice = getComputerChoice();
 
-    console.warn(humanChoice)
     console.warn("Computer's choice: " + computerChoice)
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!")
+        updateScores(true, true);
         playRound(humanScore, computerScore);
-    } else if (humanChoice === "rock" && computerChoice === "scissors" ||
+    } 
+    else if (humanChoice === "rock" && computerChoice === "scissors" ||
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper") {
-        console.log("You win!")
-        humanScore = humanScore + 1;
+        updateScores(true, false);
         playRound(humanScore, computerScore);
-    } else {
-        console.log("You lose! " + computerChoice + " beats " + humanChoice)
-        computerScore = computerScore + 1
+    } 
+    else {
+        updateScores(false, true);
         playRound(humanScore, computerScore);
     }
 }
