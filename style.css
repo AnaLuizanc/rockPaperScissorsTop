@@ -121,3 +121,46 @@ svg {
     text-align: center;
     font-size: 0.9rem;
 }
+
+.alert-message {
+    padding: 15px;
+    background-color: #23194298;
+    /* Vermelho */
+    color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .scoreboard {
+        font-size: 4rem;
+    }
+
+    .container-players {
+        flex-direction: column;
+    }
+
+    #swordsIcon svg,
+    #versusIcon svg {
+        width: 3rem;
+        margin: 0 1rem 0 1rem;
+    }
+
+    svg {
+        width: 15rem;
+        margin: 0.4rem 1rem;
+    }
+
+    .left-player div,
+    .right-player div {
+        flex-direction: column;
+    }
+
+    .right-player {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

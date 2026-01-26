@@ -13,43 +13,57 @@ let roundActive = true;
 
 document.querySelectorAll(".buttons button").forEach(button => {
 
-  button.addEventListener("mouseenter", () => {
-    if (!roundActive) return;
-    userPlaceholder.innerHTML = icons[button.id];
-  });
+    button.addEventListener("mouseenter", () => {
+        if (!roundActive) return;
+        userPlaceholder.innerHTML = icons[button.id];
+    });
 
-  button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-    if (!roundActive) return;
-    roundActive = false;
+        if (!roundActive) return;
+        roundActive = false;
 
-    const humanChoice = button.id;
-    const computerChoice = getComputerChoice();
+        const humanChoice = button.id;
+        const computerChoice = getComputerChoice();
 
-    userPlaceholder.innerHTML = icons[humanChoice];
-    robotPlaceholder.innerHTML = icons[computerChoice];
+        userPlaceholder.innerHTML = icons[humanChoice];
+        robotPlaceholder.innerHTML = icons[computerChoice];
 
-    const winner = getWinner(humanChoice, computerChoice);
-    updateScores(winner);
+        const winner = getWinner(humanChoice, computerChoice);
+        updateScores(winner);
 
-    setTimeout(startNewRound, 3000);
-  });
+        setTimeout(startNewRound, 2300);
+    });
 
 });
 
 function startNewRound() {
-  userPlaceholder.innerHTML = "";
-  robotPlaceholder.innerHTML = "";
-  roundActive = true;
+    userPlaceholder.innerHTML = "";
+    robotPlaceholder.innerHTML = "";
+    roundActive = true;
 }
 
 function updateScores(winner) {
+    var alert = document.getElementById("myAlert");
+    alert.style.display = "block";
+
     if (winner === "human") {
         humanScore += 1;
         document.getElementById("humanScore").innerHTML = humanScore;
+        alert.style.backgroundColor = "#4bb543bf";
+        alert.textContent = "Você ganhou esta rodada!";
     }
-    if (winner === "computer") {
+    else if (winner === "computer") {
         computerScore += 1;
         document.getElementById("computerScore").innerHTML = computerScore;
+        alert.style.backgroundColor = "#ff0000bf";
+        alert.textContent = "Você perdeu esta rodada!";
     }
+    else {
+        alert.textContent = "Empate!";
+    }
+
+    setTimeout(function () {
+        alert.style.display = "none";
+    }, 2300);
 }

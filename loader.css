@@ -5,6 +5,7 @@
   border-radius: 50%;
   background: conic-gradient(#d3442c 0 25%,#4d7690 25% 50%, #d37f32 50% 75%,#ffd960 75%);
   animation: l22 2s infinite linear;
+  margin-bottom: 1rem;
 }
 .loader::before,
 .loader::after {

@@ -7,9 +7,9 @@ export function getComputerChoice() {
 }
 
 export function getWinner(human, computer) {
-    if (human === computer){
+    if (human === computer) {
         return "draw";
-    } 
+    }
     if (
         (human === "rock" && computer === "scissors") ||
         (human === "paper" && computer === "rock") ||
