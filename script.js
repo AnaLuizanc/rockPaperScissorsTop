@@ -22,13 +22,14 @@ document.querySelectorAll(".buttons button").forEach(button => {
 
         if (!roundActive) return;
         roundActive = false;
+        setButtonsDisabled(true);
 
         const humanChoice = button.id;
         const computerChoice = getComputerChoice();
 
         userPlaceholder.innerHTML = icons[humanChoice];
         robotPlaceholder.innerHTML = icons[computerChoice];
-        document.getElementById("loader").style.display = "none";
+        document.getElementById("loader").style.visibility = "hidden";
 
         const winner = getWinner(humanChoice, computerChoice);
         updateScores(winner);
@@ -42,7 +43,8 @@ function startNewRound() {
     userPlaceholder.innerHTML = "";
     robotPlaceholder.innerHTML = "";
     roundActive = true;
-    document.getElementById("loader").style.display = "block";
+    document.getElementById("loader").style.visibility = "visible";
+    setButtonsDisabled(false);
 }
 
 function updateScores(winner) {
@@ -68,4 +70,10 @@ function updateScores(winner) {
     setTimeout(function () {
         alert.style.display = "none";
     }, 2300);
+}
+
+function setButtonsDisabled(state) {
+    document.querySelectorAll(".buttons button").forEach(button => {
+        button.disabled = state;
+    });
 }

@@ -133,6 +133,11 @@ svg {
     display: none;
 }
 
+.buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (max-width: 600px) {
     .scoreboard {
         font-size: 4rem;
