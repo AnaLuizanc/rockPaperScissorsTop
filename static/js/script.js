@@ -8,6 +8,9 @@ document.getElementById("userIcon").innerHTML = icons.userProfile;
 document.getElementById("robotIcon").innerHTML = icons.robot;
 document.getElementById("versusIcon").innerHTML = icons.versus;
 document.getElementById("swordsIcon").innerHTML = icons.swords;
+document.getElementById("rockIcon").innerHTML = icons.rock;
+document.getElementById("paperIcon").innerHTML = icons.paper;
+document.getElementById("scissorsIcon").innerHTML = icons.scissors;
 
 let roundActive = true;
 
