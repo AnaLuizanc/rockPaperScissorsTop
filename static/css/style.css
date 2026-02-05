@@ -19,7 +19,7 @@ svg {
 
 @font-face {
     font-family: 'digital-clock-font';
-    src: url('./digital-font/digital-7.ttf') format('truetype');
+    src: url('../../assets/digital-font/digital-7.ttf') format('truetype');
 }
 
 
@@ -75,7 +75,6 @@ svg {
 }
 
 .buttons {
-    /* display: flex; */
     gap: 1rem;
     justify-content: center;
     margin-top: 1rem;
