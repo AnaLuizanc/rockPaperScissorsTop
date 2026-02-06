@@ -1,7 +1,12 @@
 * {
     box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'digital-clock-font';
+    src: url('../../assets/digital-font/digital-7.ttf') format('truetype');
 }
 
 body {
@@ -14,41 +19,24 @@ body {
 svg {
     width: 20rem;
     height: auto;
-    margin: 1rem
+    margin: 1rem;
 }
-
-@font-face {
-    font-family: 'digital-clock-font';
-    src: url('../../assets/digital-font/digital-7.ttf') format('truetype');
-}
-
 
 .header,
 .footer {
+    padding: 1rem;
     background-color: #231942;
     color: #BE95C4;
-    padding: 1rem;
     text-transform: uppercase;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 .instructions {
     padding: 1.5rem 1rem;
-}
-
-.container-score {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.scoreboard {
-    font-family: 'digital-clock-font', monospace;
-    font-size: 7rem;
-    color: #F4F1DE;
-    background-color: #9F86C0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
 }
 
 .main-content {
@@ -59,41 +47,58 @@ svg {
     align-items: center;
 }
 
+.container-score {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container-score h2 {
-    text-transform: uppercase;
     font-size: 4rem;
     color: #231942;
+    text-transform: uppercase;
 }
 
 .container-players {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
     margin-bottom: 1.5rem;
 }
 
-.buttons {
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.left-player div,
-.right-player div,
 .scoreboard {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: 'digital-clock-font', monospace;
+    font-size: 7rem;
+    color: #F4F1DE;
+    background-color: #9F86C0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.left-player,
+.right-player div {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
 }
 
-.usersPlaceholder {
-    background-color: azure;
-    width: 8rem;
-    height: 8rem;
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.buttons svg {
+    margin: 0.5rem 0;
 }
 
 .buttons button {
@@ -111,37 +116,46 @@ svg {
     background-color: #231942;
 }
 
+.buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.usersPlaceholder {
+    width: 8rem;
+    height: 8rem;
+    margin-top: 1rem;
+    background-color: azure;
+    border-radius: 0.5rem;
+    border: none;
+}
+
 #swordsIcon svg,
 #versusIcon svg {
     width: 6rem;
 }
 
-.btn-image {
-    width: 5rem;
-}
-
-.footer {
-    text-align: center;
-    font-size: 0.9rem;
+.btn-image svg {
+    width: 4rem;
 }
 
 .alert-message {
-    padding: 15px;
-    background-color: #23194298;
-    color: white;
     position: fixed;
     top: 20px;
     right: 20px;
+    padding: 15px;
+    background-color: #23194298;
+    color: white;
     border-radius: 5px;
     display: none;
 }
 
-.buttons button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 @media (max-width: 600px) {
+    svg {
+        width: 10rem;
+        margin: 0.4rem 1rem;
+    }
+
     .scoreboard {
         font-size: 4rem;
     }
@@ -153,12 +167,7 @@ svg {
     #swordsIcon svg,
     #versusIcon svg {
         width: 3rem;
-        margin: 0 1rem 0 1rem;
-    }
-
-    svg {
-        width: 10rem;
-        margin: 0.4rem 1rem;
+        margin: 0 1rem;
     }
 
     .usersPlaceholder {
@@ -166,14 +175,8 @@ svg {
         height: 5rem;
     }
 
-    .left-player div,
-    .right-player div {
-        flex-direction: column;
-    }
-    
-    div .buttons {
-        display: flex;
-        flex-direction: row;
+    .btn-image svg {
+        width: 2rem;
     }
 
     .right-player {
