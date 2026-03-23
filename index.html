@@ -4,71 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rock, Paper and Scissors – play against a bot in this classic hand game!">
+
+    <!-- Google Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/loader.css">
-    <title>Rock, Paper and Scissors</title>
+    <title>Rock, Paper &amp; Scissors</title>
 </head>
 
-<body class="flex-container">
-    <div class="header">
-        Rock, Paper and Scissors Game
-    </div>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        ✊ Rock, Paper &amp; Scissors ✌️
+    </header>
+
+    <!-- ===== INSTRUCTIONS ===== -->
     <div class="instructions">
-        <p>Here you will play with a bot. I hope you have fun!</p>
+        <p>Choose your move — can you beat the bot? 🤖</p>
     </div>
-    <div class="main-content">
-        <div class="container-score">
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- Score -->
+        <section class="container-score" aria-label="Scoreboard">
             <h2>Score</h2>
             <div class="scoreboard">
-                <div id="humanScore" class="score">0</div>
-                <div id="swordsIcon"></div>
-                <div id="computerScore" class="score">0</div>
+                <div id="humanScore" class="score" aria-label="Your score">0</div>
+                <div id="swordsIcon" aria-hidden="true"></div>
+                <div id="computerScore" class="score" aria-label="Bot score">0</div>
             </div>
-        </div>
-        <div class="container-players">
+        </section>
+
+        <!-- Players -->
+        <section class="container-players" aria-label="Game area">
+
+            <!-- Human side -->
             <div class="left-player">
-                <div>
-                    <div id="userIcon"></div>
-                    <div id="userChoicePlaceholder" class="usersPlaceholder"></div>
-                </div>
-                <div class="buttons">
+                <div id="userIcon" aria-hidden="true"></div>
+                <div id="userChoicePlaceholder" class="usersPlaceholder" aria-label="Your choice"></div>
+                <div class="buttons" role="group" aria-label="Choose your move">
                     <button id="rock">
-                        <div id="rockIcon" class="btn-image"></div><span>Rock</span>
+                        <div id="rockIcon" class="btn-image" aria-hidden="true"></div>
+                        <span>Rock</span>
                     </button>
                     <button id="paper">
-                        <div id="paperIcon" class="btn-image"></div><span>Paper</span>
+                        <div id="paperIcon" class="btn-image" aria-hidden="true"></div>
+                        <span>Paper</span>
                     </button>
                     <button id="scissors">
-                        <div id="scissorsIcon" class="btn-image"></div><span>Scissors</span>
+                        <div id="scissorsIcon" class="btn-image" aria-hidden="true"></div>
+                        <span>Scissors</span>
                     </button>
                 </div>
             </div>
-            <div id="versusIcon"></div>
+
+            <!-- VS icon -->
+            <div id="versusIcon" aria-hidden="true"></div>
+
+            <!-- Bot side -->
             <div class="right-player">
                 <div>
-                    <div id="robotChoicePlaceholder" class="usersPlaceholder"></div>
-                    <div id="robotIcon"></div>
+                    <div id="robotIcon" aria-hidden="true"></div>
+                    <div id="robotChoicePlaceholder" class="usersPlaceholder" aria-label="Bot's choice"></div>
                 </div>
                 <div>
-                    <div id="loader" class="loader"></div>
+                    <div id="loader" class="loader" aria-label="Bot is thinking…"></div>
                 </div>
             </div>
-        </div>
 
-        <div id="myAlert" class="alert-message">Ação realizada com sucesso!</div>
-    </div>
-    <div class="footer">
-        <h4>Made with hard work for The Odin Project 2026</h4>
-    </div>
+        </section>
 
+        <!-- Toast notification -->
+        <div id="myAlert" class="alert-message" role="status" aria-live="polite"></div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>Made with ❤️ for The Odin Project 2026</p>
+    </footer>
 
     <script type="module" src="static/js/script.js"></script>
     <script src="static/js/gameLogic.js"></script>
+    <script>
+        let humanScore = computerScore = 0;
+    </script>
 </body>
-
-<script>
-    let humanScore = computerScore = 0;
-
-</script>
 
 </html>

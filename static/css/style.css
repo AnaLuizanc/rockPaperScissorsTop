@@ -1,173 +1,435 @@
-* {
+/* ============================================================
+   ROCK PAPER SCISSORS – style.css
+   Redesign: arcade/game palette with full responsiveness
+   ============================================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+    /* Palette */
+    --bg-dark:       #0d0f1e;
+    --bg-panel:      #151829;
+    --bg-card:       #1c2040;
+    --accent-gold:   #f5c842;
+    --accent-teal:   #30c9b0;
+    --accent-red:    #e84545;
+    --accent-blue:   #4e8ef7;
+    --text-primary:  #e8eaf6;
+    --text-muted:    #7986cb;
+    --border:        #2a3060;
+    --btn-hover:     #f5c842;
+
+    /* Typography */
+    --font-body:    'Rajdhani', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+
+    /* Sizing */
+    --header-h:     4rem;
+    --radius-sm:    6px;
+    --radius-md:    12px;
+    --radius-lg:    20px;
+    --transition:   0.25s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* ---------- Digital font (scoreboard) ---------- */
 @font-face {
     font-family: 'digital-clock-font';
     src: url('../../assets/digital-font/digital-7.ttf') format('truetype');
 }
 
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+    font-size: 16px;
+}
+
 body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: #E0B1CB;
+
+    /* subtle grid texture */
+    background-image:
+        linear-gradient(rgba(78, 142, 247, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78, 142, 247, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
-svg {
-    width: 20rem;
-    height: auto;
-    margin: 1rem;
-}
-
-.header,
-.footer {
-    padding: 1rem;
-    background-color: #231942;
-    color: #BE95C4;
+/* ============================================================
+   HEADER & FOOTER
+   ============================================================ */
+.header {
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0d0f1e 0%, #1a1f45 100%);
+    border-bottom: 2px solid var(--accent-teal);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 900;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
+    color: var(--accent-gold);
+    text-shadow: 0 0 20px rgba(245, 200, 66, 0.5);
+    padding: 0 1.5rem;
+    text-align: center;
 }
 
 .footer {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #0d0f1e 0%, #1a1f45 100%);
+    border-top: 2px solid var(--accent-teal);
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
 }
 
+/* ============================================================
+   INSTRUCTIONS
+   ============================================================ */
 .instructions {
-    padding: 1.5rem 1rem;
+    text-align: center;
+    padding: 0.85rem 1rem;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
 }
 
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
 .main-content {
     flex: 1;
-    padding: 1rem;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
 }
 
+/* ============================================================
+   SCOREBOARD
+   ============================================================ */
 .container-score {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 480px;
 }
 
 .container-score h2 {
-    font-size: 4rem;
-    color: #231942;
+    font-family: var(--font-display);
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-}
-
-.container-players {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
+    color: var(--accent-teal);
 }
 
 .scoreboard {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     font-family: 'digital-clock-font', monospace;
-    font-size: 7rem;
-    color: #F4F1DE;
-    background-color: #9F86C0;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    color: var(--accent-gold);
+    background: var(--bg-panel);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.4rem 2rem 0.2rem;
+    width: 100%;
+    box-shadow:
+        0 0 30px rgba(245, 200, 66, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+/* glow sweep animation */
+.scoreboard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(245,200,66,0.06) 50%, transparent 60%);
+    animation: sheen 3s infinite;
+}
+
+@keyframes sheen {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+}
+
+#swordsIcon svg {
+    width: clamp(2.5rem, 6vw, 5rem);
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(245,200,66,0.5));
+}
+
+/* ============================================================
+   PLAYERS AREA
+   ============================================================ */
+.container-players {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
 }
 
 .left-player,
-.right-player div {
+.right-player {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 1.2rem;
+    flex: 1;
+}
+
+/* inner div inside right-player */
+.right-player > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
+/* avatar icons */
+#userIcon svg,
+#robotIcon svg {
+    width: clamp(3.5rem, 8vw, 5.5rem);
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(78,142,247,0.4));
+    transition: filter var(--transition);
+}
+
+/* versus icon */
+#versusIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding-top: 1rem;
+}
+
+#versusIcon svg {
+    width: clamp(2.5rem, 5vw, 4rem);
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(232,69,69,0.6));
+    animation: pulse-vs 2s infinite;
+}
+
+@keyframes pulse-vs {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.08); }
+}
+
+/* choice placeholders */
+.usersPlaceholder {
+    width:  clamp(5rem, 12vw, 9rem);
+    height: clamp(5rem, 12vw, 9rem);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--transition);
+    overflow: hidden;
+}
+
+.usersPlaceholder svg {
+    width: 80% !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.buttons svg {
-    margin: 0.5rem 0;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .buttons button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: #9F86C0;
-    color: #F4F1DE;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.65rem 0.9rem;
+    min-width: 80px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: background var(--transition), border-color var(--transition),
+                transform var(--transition), box-shadow var(--transition);
 }
 
 .buttons button:hover {
-    background-color: #231942;
+    background: linear-gradient(135deg, #1e2652, #2a3480);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(245,200,66,0.2);
+}
+
+.buttons button:active {
+    transform: translateY(0px);
 }
 
 .buttons button:disabled {
-    opacity: 0.5;
+    opacity: 0.45;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
-.usersPlaceholder {
-    width: 8rem;
-    height: 8rem;
-    margin-top: 1rem;
-    background-color: azure;
-    border-radius: 0.5rem;
-    border: none;
-}
-
-#swordsIcon svg,
-#versusIcon svg {
-    width: 6rem;
+.btn-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-image svg {
-    width: 4rem;
+    width: clamp(2rem, 5vw, 3rem);
+    height: auto;
+    transition: filter var(--transition);
 }
 
+.buttons button:hover .btn-image svg {
+    filter: drop-shadow(0 0 6px rgba(245,200,66,0.5));
+}
+
+/* ============================================================
+   LOADER (spinner placeholder replaces inner style)
+   ============================================================ */
+#loader {
+    visibility: visible;
+}
+
+/* ============================================================
+   ALERT / TOAST
+   ============================================================ */
 .alert-message {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
-    background-color: #23194298;
-    color: white;
-    border-radius: 5px;
+    top: 1.25rem;
+    right: 1.25rem;
+    min-width: 180px;
+    max-width: 280px;
+    padding: 0.85rem 1.2rem;
+    border-radius: var(--radius-md);
+    background: rgba(21,24,41,0.92);
+    border-left: 4px solid var(--accent-gold);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     display: none;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    animation: slide-in 0.3s ease;
 }
 
-@media (max-width: 600px) {
-    svg {
-        width: 10rem;
-        margin: 0.4rem 1rem;
+@keyframes slide-in {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================================
+   SVG GLOBAL DEFAULTS
+   ============================================================ */
+svg {
+    width: clamp(6rem, 15vw, 18rem);
+    height: auto;
+    margin: 0.5rem;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET  (601px – 900px)
+   ============================================================ */
+@media (min-width: 601px) and (max-width: 900px) {
+    .container-players {
+        gap: 1.25rem;
     }
 
-    .scoreboard {
-        font-size: 4rem;
+    .buttons {
+        gap: 0.5rem;
+    }
+
+    .buttons button {
+        min-width: 70px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE  (≤ 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+    .header {
+        font-size: clamp(0.8rem, 5vw, 1.1rem);
+        letter-spacing: 0.08em;
+        height: auto;
+        padding: 0.9rem 1rem;
+    }
+
+    .main-content {
+        padding: 1.25rem 0.75rem;
+        gap: 1.25rem;
     }
 
     .container-players {
         flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
     }
 
-    #swordsIcon svg,
+    /* swap bot side so loader > avatar > choice on mobile */
+    .right-player {
+        flex-direction: column-reverse;
+    }
+
+    #versusIcon {
+        padding-top: 0;
+    }
+
     #versusIcon svg {
-        width: 3rem;
-        margin: 0 1rem;
+        width: 2.2rem;
     }
 
     .usersPlaceholder {
@@ -175,12 +437,64 @@ svg {
         height: 5rem;
     }
 
+    #userIcon svg,
+    #robotIcon svg {
+        width: 3.2rem;
+    }
+
+    .scoreboard {
+        font-size: 3.5rem;
+        padding: 0.3rem 1.25rem 0.1rem;
+    }
+
+    #swordsIcon svg {
+        width: 2rem;
+    }
+
+    .buttons {
+        gap: 0.5rem;
+    }
+
+    .buttons button {
+        min-width: 68px;
+        padding: 0.5rem 0.6rem;
+    }
+
     .btn-image svg {
         width: 2rem;
     }
 
-    .right-player {
-        display: flex;
-        flex-direction: column-reverse;
+    .alert-message {
+        right: 0.75rem;
+        left: 0.75rem;
+        max-width: none;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — LARGE SCREEN  (≥ 1200px)
+   ============================================================ */
+@media (min-width: 1200px) {
+    .container-players {
+        gap: 4rem;
+    }
+
+    .buttons {
+        gap: 1rem;
+    }
+
+    .buttons button {
+        min-width: 100px;
+        padding: 0.8rem 1.1rem;
+    }
+
+    .usersPlaceholder {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    #userIcon svg,
+    #robotIcon svg {
+        width: 6rem;
     }
 }

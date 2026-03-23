@@ -1,25 +1,39 @@
+/* ============================================================
+   LOADER — spinner for the bot "thinking" phase
+   Colors aligned to the game arcade palette
+   ============================================================ */
+
 .loader {
-  width: 50px;
-  aspect-ratio: 1;
-  display: grid;
-  border-radius: 50%;
-  background: conic-gradient(#d3442c 0 25%,#4d7690 25% 50%, #d37f32 50% 75%,#ffd960 75%);
-  animation: l22 2s infinite linear;
-  margin-bottom: 1rem;
+    width: 52px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: conic-gradient(
+        #f5c842 0   25%,   /* gold  */
+        #30c9b0 25% 50%,   /* teal  */
+        #e84545 50% 75%,   /* red   */
+        #4e8ef7 75%        /* blue  */
+    );
+    animation: loader-spin 1.6s infinite linear;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 18px rgba(245, 200, 66, 0.25);
 }
+
 .loader::before,
 .loader::after {
-   content: "";
-   grid-area: 1/1;
-   margin: 15%;
-   border-radius: 50%;
-   background: inherit;
-   animation: inherit;
+    content: "";
+    grid-area: 1 / 1;
+    margin: 15%;
+    border-radius: 50%;
+    background: inherit;
+    animation: inherit;
 }
+
 .loader::after {
-   margin: 25%;
-   animation-duration: 3s;
+    margin: 25%;
+    animation-duration: 2.4s;
 }
-@keyframes l22 {
-  100% {transform: rotate(1turn)}
+
+@keyframes loader-spin {
+    100% { transform: rotate(1turn); }
 }
